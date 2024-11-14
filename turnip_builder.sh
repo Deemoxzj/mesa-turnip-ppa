@@ -144,7 +144,7 @@ EOF
 
 	echo "Generating build files ..." $'\n'
 	#meson build-android-aarch64 --cross-file "$workdir"/mesa/android-aarch64 -Dbuildtype=release -Dplatforms=android -Dplatform-sdk-version=$sdkver -Dandroid-stub=true -Dgallium-drivers= -Dvulkan-drivers=freedreno -Dvulkan-beta=true -Dfreedreno-kmds=kgsl -Db_lto=true &> "$workdir"/meson_log
-	meson build-android-aarch64 --cross-file "$workdir"/mesa/android-aarch64 -Dbuildtype=release -Dplatforms=android -Dplatform-sdk-version=$sdkver -Dandroid-stub=true -Dgallium-drivers= -Dvulkan-drivers=freedreno -Dvulkan-beta=true -Dfreedreno-kmds=kgsl -Db_lto=true &> "$workdir"/meson_log
+	meson build-android-aarch64 --cross-file "$workdir"/mesa/android-aarch64 -Dgallium-drivers=freedreno,svga,virgl,zink,d3d12,softpipe,llvmpipe -Dvulkan-drivers=freedreno,swrast,virtio -Dglx=dri -Dplatforms=android,x11,wayland -Dplatform-sdk-version=$sdkver -Db_lto=true -Dandroid-stub=true -Dbuildtype=release -Dllvm=enabled -Dxlib-lease=enabled -Dgles2=enabled -Dgallium-nine=true -Dgallium-opencl=icd -Degl-native-platform=x11 -Degl=enabled -Dfreedreno-kmds=kgsl,msm -Ddri3=enabled  -Dvulkan-beta=true -Dglx-direct=true -Dtools=drm-shim,freedreno -Dgallium-vdpau=enabled -Dopengl=true -Dosmesa=true -Dpower8=enabled -Dglvnd=disabled -Dteflon=true -Dvideo-codecs=all -Dgallium-d3d12-video=enabled -Dgallium-d3d12-graphics=enabled -Dxmlconfig=enabled -Dgbm=enabled &> "$workdir"/meson_log
 
 	echo "Compiling build files ..." $'\n'
 	ninja -C build-android-aarch64 &> "$workdir"/ninja_log
