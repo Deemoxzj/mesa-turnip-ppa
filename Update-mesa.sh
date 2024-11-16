@@ -1,7 +1,8 @@
-sudo dpkg --add-architecture arm64
-apt update
-apt install vim sudo -y
-apt install apt-transport-https ca-certificates
+sudo apt update
+sudo apt install vim sudo -y
+sudo dpkg --add-architecture armhf
+apt update;
+#apt install apt-transport-https ca-certificates
 apt install flex:armhf -y
 sudo apt install gcc-aarch64-linux-gnu g++-aarch64-linux-gnu cmake meson git wget -y
 sudo apt install python3 python3-yaml python3-mako -y
