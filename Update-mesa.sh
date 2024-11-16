@@ -2,11 +2,10 @@ sudo dpkg --add-architecture arm64
 apt update
 apt install vim sudo -y
 apt install apt-transport-https ca-certificates
+apt install flex:armhf -y
 sudo apt install gcc-aarch64-linux-gnu g++-aarch64-linux-gnu cmake meson git wget -y
 sudo apt install python3 python3-yaml python3-mako -y
-sudo apt install libzstd-dev:armhf libdrm-dev:armhf libudev-dev:armhf libelf-dev:armhf valgrind:armhf bison:armhf byacc:armhf libreadline-dev:armhf libedit-dev:armhf
- flex:armhf
-
+sudo apt install libzstd-dev:armhf libdrm-dev:armhf libudev-dev:armhf libelf-dev:armhf valgrind:armhf bison:armhf byacc:armhf libreadline-dev:armhf libedit-dev:armhf -y
 
 cd ~
 echo '[binaries]
@@ -20,7 +19,6 @@ system = 'linux'
 cpu_family = 'arm'
 cpu = 'arm'
 endian = 'little''>>cross_file_armhf.txt
-
 
 git clone https://gitlab.freedesktop.org/mesa/mesa.git
 cd mesa
